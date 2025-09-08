@@ -1,0 +1,81 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f4f6fb;
+    color: #222;
+}
+
+.content-layout {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 2rem auto;
+    min-height: 60vh;
+}
+
+aside {
+    background: #2a3a5c;
+    color: #fff;
+    padding: 2rem 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 8px rgba(42, 58, 92, 0.07);
+}
+
+main {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 8px rgba(42, 58, 92, 0.07);
+}
+
+header {
+    text-align: left;
+    padding-bottom: 1.5rem;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(42, 58, 92, 0.07);
+    padding-left: 2rem;
+}
+
+h1 {
+    margin: 0;
+    padding: 1rem 0 0.5rem 0;
+    color: #2a3a5c;
+    font-size: 2rem;
+    text-align: left;
+}
+
+nav {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    background: #2a3a5c;
+    padding: 1rem 0.5rem;
+    border-radius: 0.5rem;
+    margin-top: 0.5rem;
+    box-sizing: border-box;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    flex: 1 1 0;
+    text-align: center;
+    transition: color 0.2s;
+}
+
+nav a:hover {
+    color: #ffb347;
+}
+
+footer {
+    background: #2a3a5c;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 2rem;
+    border-radius: 0.5rem;
+}
