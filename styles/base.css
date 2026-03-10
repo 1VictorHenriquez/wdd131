@@ -37,8 +37,11 @@ nav a {
 
 nav a:hover {
     color: #57c81f;
-    text-decoration: none;
     text-decoration: underline;
+}
+
+header {
+    display: block;
 }
 
 h1 {
