@@ -94,7 +94,6 @@ figcaption{
     margin-top: 5px;
 }
 
-/* Seleccionamos el figure que contiene la bandera */
 section.card figure {
     float: left;
     margin: 0;
@@ -109,11 +108,12 @@ section.card figure img {
 }
 
 .card h3 {
-    clear: both;
-    padding: 10px 15px;
-    margin: 0;
     text-align: center;
-    font-weight: 500;
+    border-bottom: 1px solid #d0d0d0;
+    margin: 20px 40px;
+    padding-bottom: 10px;
+    font-size: 1.2rem;
+    clear: both;
 }
 
 .bandera_text{
@@ -137,4 +137,23 @@ footer p {
 #lastModified {
     color: #57c81f;
     font-weight: bold;
+}
+
+.card:last-of-type {
+    display: flex;
+    flex-direction: column;
+}
+
+.card:last-of-type ul {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0;
+    padding-left: 60px;
+    list-style-position: inside;
+}
+
+.card:last-of-type ul li {
+    margin-bottom: 10px;
 }
