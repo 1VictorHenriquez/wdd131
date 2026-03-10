@@ -1,14 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="description"
+        content="WDD 131 - Dynamic Web Fundamentals, Victor Henriquez, my presentation website to show show I am">
+    <meta name="author" content="Victor Henriquez">
+    <title>WDD 131 - Dynamic Web Fundamentals - Victor Henriquez</title>
+    <link rel="stylesheet" href="styles/base.css">
+    <script src="scripts/gedates.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
-    <h1>Wdd131 BYU</h1>
+    <header>
+        <span id="course-title">WDD 131 - Dynamic Web Fundamentals</span>
+        <nav>
+            <ul>
+                <li><a href="https://www.linkedin.com/in/victor-henriquez-/">LinkedIn</a></li>
+                <li><a href="https://byupw.instructure.com/.">Canva</a></li>
+                <li><a
+                        href="https://www.churchofjesuschrist.org/study/scriptures/bofm/moro/7?lang=eng&id=p47-p48#p47">Scripture</a>
+                </li>
+                <li><a href="#">Final Projects</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Victor J. Henriquez</h1>
+        <section class="card">
+            <h2>About Me</h2>
+            <Img src="images/VHenriquez (1).webp" alt="Victor Henriquez" class="victor"></Img>
+            <p>My name is Victor Henriquez, I was born in Vnenezuela and I live with my familily here. I am currently
+                working as Web Designer and I have my own agency. I have two children and I love running at night.</p>
+            <h3>Barquisimeto, Venezuela</h3>
+            <figure>
+                <img src="images/Flag_of_Venezuela.svg.webp" alt="Bandera de Venezuela" class="bandera">
+                <figcaption>Official flag of Venezuela</figcaption>
+            </figure>
+            <p class="bandera_text">Venezuela is a country on the northern coast of South America, with diverse natural attractions. Along
+                its Caribbean
+                coast are tropical tourist islands, including Margarita Island and the Los Roques archipelago. To the
+                northwest lies the
+                Andes mountain range and the colonial city of Mérida, a base for visiting Sierra Nevada National Park..</p>
+        </section>
+        <section class="card">
+            <h2>Web Dev Resources</h2>
+            <ul>
+                <li><a href="#">Dev.Community</a></li>
+                <li><a href="#">Smashing Magazine</a></li>
+                <li><a href="#">CSS Tricks</a></li>
+                <li><a href="#">W3 Schools</a></li>
+                <li><a href="#">Udemy</a></li>
+                <li><a href="#">Lorem Picsum Image Placeholder</a></li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>© <span id="currentyear"></span> Victor Henriquez, Venezuela</p>
+        <p id="lastModified"></p>
+    </footer>
+
 </body>
 
 </html>
