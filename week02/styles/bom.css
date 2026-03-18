@@ -1,0 +1,49 @@
+/* basic styling for BOM top‑10 interface */
+body {
+    font-family: system-ui, sans-serif;
+    margin: 1rem;
+    line-height: 1.5;
+}
+
+main {
+    max-width: 600px;
+    margin: auto;
+}
+
+form {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 0.5rem;
+    font-size: 1rem;
+}
+
+button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+ul#chapters {
+    list-style: none;
+    padding: 0;
+}
+
+ul#chapters li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.3rem 0.5rem;
+    border-bottom: 1px solid #ccc;
+}
+
+ul#chapters li button {
+    background: none;
+    border: none;
+    color: red;
+    font-size: 1.2rem;
+}

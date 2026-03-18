@@ -1,0 +1,23 @@
+@media (min-width: 640px) {
+
+    #hamburger {
+        display: none;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: row;
+        position: static;
+        width: auto;
+        background: none;
+        padding: 0;
+    }
+
+    nav a {
+        padding: 0.4rem 0.75rem;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
