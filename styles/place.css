@@ -4,13 +4,13 @@
     --color-accent: #2e6da4;
     --secondary-accent: #ffffff;
     --color-bg: #f4f1eb;
-    --color-card: rgba(255, 255, 255, 0.92);
+    --color-card: #ffffffeb;
     --color-text: #1e1e1e;
     --color-footer-bg: #1a3a5c;
     --color-footer-text: #ffffff;
     --font-heading: 'Merriweather', serif;
     --font-body: 'Open Sans', sans-serif;
-    --shadow: 0 4px 16px rgba(0,0,0,0.18);
+    --shadow: 0 4px 16px #0000002e;
     --radius: 8px;
 }
 
