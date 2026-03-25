@@ -2,6 +2,7 @@
     --color-primary: #1a3a5c;
     --color-secondary: #c8a84b;
     --color-accent: #2e6da4;
+    --secondary-accent: #ffffff;
     --color-bg: #f4f1eb;
     --color-card: rgba(255, 255, 255, 0.92);
     --color-text: #1e1e1e;
@@ -27,7 +28,7 @@ body {
 
 header {
     background-color: var(--color-primary);
-    color: white;
+    color: var(--secondary-accent);
     text-align: center;
     padding: 1.5rem 1rem;
 }
