@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Página informativa sobre Mérida, Venezuela. Datos, clima y más.">
+    <meta name="author" content="Victor Henriquez">
+    <title>Mérida, Venezuela</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/place.css">
+    <script src="scripts/place.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Mérida, Venezuela</h1>
+    </header>
+
+    <div class="hero-container">
+        <picture>
+            <source media="(min-width: 640px)" srcset="images/merida-large.webp">
+            <img src="images/merida-small.webp" 
+                 alt="Vista panorámica de Mérida, Venezuela" 
+                 fetchpriority="high"
+                 width="800" height="600">
+        </picture>
+
+<section class="data-card">
+    <h2>Data</h2>
+    <dl>
+        <dt>Area:</dt>        <dd>11,300 sq km</dd>
+        <dt>Population:</dt>  <dd>912,889</dd>
+        <dt>Capital:</dt>     <dd>Mérida</dd>
+        <dt>Languages:</dt>   <dd>Spanish</dd>
+        <dt>Currency:</dt>    <dd>Venezuelan Bolívar</dd>
+        <dt>Time Zone:</dt>   <dd>UTC-4</dd>
+        <dt>Calling Code:</dt><dd>+58 274</dd>
+        <dt>Elevation:</dt>   <dd>1,640 m</dd>
+    </dl>
+</section>
+
+        <section class="weather-card">
+            <h2 class="weather-title">Weather</h2>
+            <img src="images/weather-icon.svg" alt="Parcialmente nublado" class="weather-icon-mobile">
+            <dl>
+                <dt>Temperature:</dt> <dd>10 °C</dd>
+                <dt>Conditions:</dt>  <dd>Partly Cloudy</dd>
+                <dt>Wind:</dt>        <dd>8 km/h</dd>
+                <dt>Wind Chill:</dt>  <dd id="windchill">--</dd>
+            </dl>
+        </section>
+    </div>
+
+    <footer>
+        <p>© <span id="currentyear"></span> Victor Henriquez | Mérida, Venezuela</p>
+        <p id="lastModified"></p>
+    </footer>
+</body>
+</html>
