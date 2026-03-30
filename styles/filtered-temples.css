@@ -12,7 +12,7 @@ body {
 
 header {
     background-color: #0f2b7c;
-    color: white;
+    color: #ffffff;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -28,7 +28,7 @@ header p {
     font-size: 1.5rem;
     background: none;
     border: none;
-    color: white;
+    color: #ffffff;
     cursor: pointer;
 }
 
@@ -47,14 +47,14 @@ nav {
 nav.open { display: flex; }
 
 nav a {
-    color: white;
+    color: #ffffff;
     text-decoration: none;
     padding: 0.5rem 1rem;
     font-size: 1rem;
 }
 
 nav a:hover {
-    background-color: #0f2b7c;
+    background-color: #091845;
     border-radius: 4px;
 }
 
@@ -78,10 +78,10 @@ h1 {
 }
 
 figure {
-    background: white;
+    background: #ffffff;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 8px #0000001a;
     padding: 1rem;
     text-align: center;
 }
@@ -117,7 +117,7 @@ figure img {
 
 footer {
     background-color: #0f2b7c;
-    color: white;
+    color: #ffffff;
     text-align: center;
     padding: 1rem;
     font-size: 0.85rem;
