@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Site plan for AI Tools Directory for Web Creators — WDD131 Project">
+    <meta name="author" content="Victor Henriquez">
+    <title>Site Plan — AI Tools Directory for Web Creators</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/siteplan.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">AI</div>
+    <div>
+        <h1>Site Plan</h1>
+        <p>AI Tools Directory for Web Creators — WDD131 Project</p>
+    </div>
+</header>
+
+<main>
+
+    <!-- 1. SITE NAME -->
+    <section>
+        <div class="section-header">
+            <span class="section-number">01</span>
+            <h2>Site Name</h2>
+        </div>
+        <div class="section-body">
+            <div class="value-box">
+                <div class="site-name-display">AI Tools Directory</div>
+                <p style="color:var(--color-text-muted); font-size:0.9rem;">for Web Creators</p>
+            </div>
+            <p>The name "AI Tools Directory" communicates the site's purpose immediately — it's a curated, searchable collection of artificial intelligence tools specifically selected for web designers and developers. The subtitle "for Web Creators" narrows the audience and signals that this is not a generic AI list but a specialized resource.</p>
+            <p>Potential domain: <span style="font-family: var(--font-mono); color: var(--color-accent); font-size:0.9rem;">ai-tools-directory.dev</span></p>
+        </div>
+    </section>
+
+    <!-- 2. SITE PURPOSE -->
+    <section>
+        <div class="section-header">
+            <span class="section-number">02</span>
+            <h2>Site Purpose</h2>
+        </div>
+        <div class="section-body">
+            <p>The AI Tools Directory serves as a centralized hub where web designers and developers can discover, compare, and bookmark artificial intelligence tools that enhance their workflow. The site provides:</p>
+            <div class="value-box">
+                <div class="label">Core features</div>
+                <p>A filterable directory of AI tools organized by category — design, copywriting, coding, SEO, and image generation. Each tool includes a name, category tag, short description, and a link to the official site.</p>
+            </div>
+            <div class="value-box">
+                <div class="label">Interactive features</div>
+                <p>Visitors can filter tools by category using navigation buttons, save their favorite tools locally using localStorage, and submit new tool suggestions through an HTML form.</p>
+            </div>
+            <div class="value-box">
+                <div class="label">Target audience</div>
+                <p>Freelance web developers, designers, and digital entrepreneurs in Latin America and globally who want to integrate AI into their web creation workflow — particularly those taking online courses or starting out in the industry.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. SCENARIOS -->
+    <section>
+        <div class="section-header">
+            <span class="section-number">03</span>
+            <h2>Scenarios</h2>
+        </div>
+        <div class="section-body">
+            <p>Questions a target audience visitor might ask when visiting the site:</p>
+            <div class="scenario">"What AI tools can help me build a website faster without writing all the code from scratch?"</div>
+            <div class="scenario">"Is there a tool that can generate professional copywriting for my client's landing page?"</div>
+            <div class="scenario">"Which AI image generators are best for creating web design assets and UI mockups?"</div>
+            <div class="scenario">"I want to save the tools I use most often — is there a way to bookmark them on this site?"</div>
+        </div>
+    </section>
+
+    <!-- 4. COLOR SCHEMA -->
+    <section>
+        <div class="section-header">
+            <span class="section-number">04</span>
+            <h2>Color Schema</h2>
+        </div>
+        <div class="section-body">
+            <p style="margin-bottom:1.25rem">The color schema uses a dark base with a neon green primary accent — conveying technical precision and innovation. The blue accent is used for interactive highlights and links.</p>
+            <div class="color-grid">
+                <div class="color-card">
+                    <div class="color-swatch" style="background:#0d0d0d;"></div>
+                    <div class="color-info">
+                        <div class="color-name">Background</div>
+                        <div class="color-hex">#0d0d0d</div>
+                        <div class="color-use">Page background, dark sections</div>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch" style="background:#161616; border-top: 1px solid rgba(255,255,255,0.08);"></div>
+                    <div class="color-info">
+                        <div class="color-name">Surface</div>
+                        <div class="color-hex">#161616</div>
+                        <div class="color-use">Cards, panels, nav</div>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch" style="background:#a3ff47;"></div>
+                    <div class="color-info">
+                        <div class="color-name">Primary</div>
+                        <div class="color-hex">#a3ff47</div>
+                        <div class="color-use">Headings, CTAs, active states</div>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch" style="background:#47c8ff;"></div>
+                    <div class="color-info">
+                        <div class="color-name">Accent</div>
+                        <div class="color-hex">#47c8ff</div>
+                        <div class="color-use">Links, hover states, icons</div>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch" style="background:#e8e8e8;"></div>
+                    <div class="color-info">
+                        <div class="color-name">Text</div>
+                        <div class="color-hex">#e8e8e8</div>
+                        <div class="color-use">Body text, labels</div>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch" style="background:#888888;"></div>
+                    <div class="color-info">
+                        <div class="color-name">Muted</div>
+                        <div class="color-hex">#888888</div>
+                        <div class="color-use">Secondary text, captions</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. TYPOGRAPHY -->
+    <section>
+        <div class="section-header">
+            <span class="section-number">05</span>
+            <h2>Typography</h2>
+        </div>
+        <div class="section-body">
+            <div class="font-card">
+                <div class="font-tag">Headings / Branding / Code</div>
+                <div class="font-sample-mono">Space Mono</div>
+                <div class="font-meta">Google Fonts — used for site title, section headers, category tags, filter buttons, and any monospaced code-like labels. Communicates technical identity.</div>
+            </div>
+            <div class="font-card">
+                <div class="font-tag">Body / Descriptions / UI</div>
+                <div class="font-sample-body">DM Sans — clean and readable at small sizes</div>
+                <div class="font-meta">Google Fonts — used for tool descriptions, paragraph text, form fields, and navigation links. Pairs well with Space Mono while keeping body text comfortable to read.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. WIREFRAMES -->
+    <section>
+        <div class="section-header">
+            <span class="section-number">06</span>
+            <h2>Wireframes</h2>
+        </div>
+        <div class="section-body">
+            <div class="wireframe-grid">
+
+                <!-- MOBILE -->
+                <div>
+                    <div class="wireframe-title">Mobile view</div>
+                    <div class="wireframe wf-mobile">
+                        <div class="wf-header">
+                            <span class="wf-header-label">AI Tools Dir.</span>
+                            <div class="wf-hamburger">
+                                <span></span><span></span><span></span>
+                            </div>
+                        </div>
+                        <div class="wf-hero">hero image / tagline</div>
+                        <div class="wf-search" style="margin-top:0.5rem">
+                            <div class="wf-search-icon"></div>
+                            <span class="wf-search-text">Search tools...</span>
+                        </div>
+                        <div class="wf-filter-row">
+                            <div class="wf-pill">All</div>
+                            <div class="wf-pill">Design</div>
+                            <div class="wf-pill">Code</div>
+                            <div class="wf-pill">Copy</div>
+                        </div>
+                        <div class="wf-cards">
+                            <div class="wf-card">
+                                <div class="wf-card-line wide"></div>
+                                <div class="wf-card-line narrow"></div>
+                                <div class="wf-card-line tag"></div>
+                            </div>
+                            <div class="wf-card">
+                                <div class="wf-card-line wide"></div>
+                                <div class="wf-card-line narrow"></div>
+                                <div class="wf-card-line tag"></div>
+                            </div>
+                            <div class="wf-card">
+                                <div class="wf-card-line wide"></div>
+                                <div class="wf-card-line narrow"></div>
+                                <div class="wf-card-line tag"></div>
+                            </div>
+                        </div>
+                        <div class="wf-footer">© 2026 Victor Henriquez</div>
+                    </div>
+                </div>
+
+                <!-- DESKTOP -->
+                <div>
+                    <div class="wireframe-title">Desktop / wider view</div>
+                    <div class="wireframe">
+                        <div class="wf-desktop-wrap">
+                            <div class="wf-desktop-header">
+                                <span style="font-family:var(--font-mono);font-size:0.7rem;color:var(--color-primary)">AI Tools Directory</span>
+                                <div class="wf-nav-links">
+                                    <div class="wf-nav-link"></div>
+                                    <div class="wf-nav-link"></div>
+                                    <div class="wf-nav-link"></div>
+                                </div>
+                            </div>
+                            <div class="wf-desktop-hero">
+                                <div class="wf-desktop-hero-title"></div>
+                                <div class="wf-desktop-hero-sub"></div>
+                            </div>
+                            <div class="wf-desktop-controls">
+                                <div class="wf-desktop-search"></div>
+                                <div class="wf-pill">All</div>
+                                <div class="wf-pill">Design</div>
+                                <div class="wf-pill">Code</div>
+                                <div class="wf-pill">Copy</div>
+                                <div class="wf-pill">SEO</div>
+                            </div>
+                            <div class="wf-desktop-grid">
+                                <div class="wf-desktop-card">
+                                    <div class="wf-card-line wide"></div>
+                                    <div class="wf-card-line narrow"></div>
+                                    <div class="wf-card-line tag"></div>
+                                </div>
+                                <div class="wf-desktop-card">
+                                    <div class="wf-card-line wide"></div>
+                                    <div class="wf-card-line narrow"></div>
+                                    <div class="wf-card-line tag"></div>
+                                </div>
+                                <div class="wf-desktop-card">
+                                    <div class="wf-card-line wide"></div>
+                                    <div class="wf-card-line narrow"></div>
+                                    <div class="wf-card-line tag"></div>
+                                </div>
+                                <div class="wf-desktop-card">
+                                    <div class="wf-card-line wide"></div>
+                                    <div class="wf-card-line narrow"></div>
+                                    <div class="wf-card-line tag"></div>
+                                </div>
+                                <div class="wf-desktop-card">
+                                    <div class="wf-card-line wide"></div>
+                                    <div class="wf-card-line narrow"></div>
+                                    <div class="wf-card-line tag"></div>
+                                </div>
+                                <div class="wf-desktop-card">
+                                    <div class="wf-card-line wide"></div>
+                                    <div class="wf-card-line narrow"></div>
+                                    <div class="wf-card-line tag"></div>
+                                </div>
+                            </div>
+                            <div class="wf-desktop-footer">footer — copyright · last modified</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <p>© <span id="yr"></span> Victor Henriquez | WDD131 — Site Plan</p>
+    <p id="lm" style="margin-top:0.25rem"></p>
+</footer>
+
+<script src="scripts/siteplan.js"></script>
+
+</body>
+</html>
