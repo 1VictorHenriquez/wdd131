@@ -127,6 +127,53 @@ p:last-child { margin-bottom: 0; }
 
 .value-box:last-child { margin-bottom: 0; }
 
+.text-muted-small {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+}
+
+.domain-tag {
+    font-family: var(--font-mono);
+    color: var(--color-accent);
+    font-size: 0.9rem;
+}
+
+.color-intro {
+    margin-bottom: 1.25rem;
+}
+
+.color-swatch.bg-bg { background: #0d0d0d; }
+.color-swatch.bg-surface {
+    background: #161616;
+    border-top: 1px solid rgba(255,255,255,0.08);
+}
+.color-swatch.bg-primary { background: #a3ff47; }
+.color-swatch.bg-accent { background: #47c8ff; }
+.color-swatch.bg-text { background: #e8e8e8; }
+.color-swatch.bg-muted { background: #888888; }
+
+.wf-search {
+    margin: 0.5rem 0.5rem 0 0.5rem;
+    height: 28px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    padding: 0 0.5rem;
+    gap: 0.4rem;
+}
+
+.wf-desktop-name {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--color-primary);
+}
+
+#lm {
+    margin-top: 0.25rem;
+}
+
 .site-name-display {
     font-family: var(--font-mono);
     font-size: 1.4rem;
