@@ -10,7 +10,7 @@
     --color-optional: #9b59b6;
     --color-footer-bg: #3b1a5e;
     --color-footer-text: #f0eef5;
-    --color-white: #ffffff;
+    --color-whitte: #ffffff;
     --color-focus-ring: #5b2d8e1f;
     --font-heading: 'Space Mono', monospace;
     --font-body: 'DM Sans', sans-serif;
@@ -31,7 +31,7 @@ body {
 /* HEADER */
 header {
     background: var(--color-header);
-    color: var(--color-white);
+    color: var(--color-whitte);
     text-align: center;
     padding: 1.25rem 1rem;
 }
@@ -175,7 +175,7 @@ textarea {
 /* SUBMIT */
 input[type="submit"] {
     background: var(--color-primary);
-    color: var(--color-white);
+    color: var(--color-whitte);
     border: none;
     padding: 0.85rem;
     border-radius: var(--radius);
@@ -207,7 +207,7 @@ input[type="submit"]:hover {
     width: 60px;
     height: 60px;
     background: var(--color-primary);
-    color: var(--color-white);
+    color: var(--color-whitte);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -253,7 +253,7 @@ input[type="submit"]:hover {
 .back-link {
     display: inline-block;
     background: var(--color-primary);
-    color: var(--color-white);
+    color: var(--color-whitte);
     text-decoration: none;
     padding: 0.75rem 1.5rem;
     border-radius: var(--radius);
