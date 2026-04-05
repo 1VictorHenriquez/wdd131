@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Product Review Form — WDD131">
+    <meta name="description" content="Submit a product review for items like flux capacitors, power laces, and more. Rate your experience and share your feedback with other users.">
     <meta name="author" content="Victor Henriquez">
     <title>Product Review</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,26 +34,26 @@
                 <fieldset class="rating-fieldset">
                     <legend>Overall Rating</legend>
                     <div class="star-row">
-                        <label class="star-label">
+                        <div class="star-item">
                             <input type="radio" id="rating1" name="rating" value="1" required>
-                            <span>&#9734;</span>
-                        </label>
-                        <label class="star-label">
-                            <input type="radio" id="rating2" name="rating" value="2">
-                            <span>&#9734;&#9734;</span>
-                        </label>
-                        <label class="star-label">
-                            <input type="radio" id="rating3" name="rating" value="3">
-                            <span>&#9734;&#9734;&#9734;</span>
-                        </label>
-                        <label class="star-label">
-                            <input type="radio" id="rating4" name="rating" value="4">
-                            <span>&#9734;&#9734;&#9734;&#9734;</span>
-                        </label>
-                        <label class="star-label">
-                            <input type="radio" id="rating5" name="rating" value="5">
-                            <span>&#9734;&#9734;&#9734;&#9734;&#9734;</span>
-                        </label>
+                            <label for="rating1">&#9734;</label>
+                        </div>
+                        <div class="star-item">
+                            <input type="radio" id="rating2" name="rating" value="2" required>
+                            <label for="rating2">&#9734;&#9734;</label>
+                        </div>
+                        <div class="star-item">
+                            <input type="radio" id="rating3" name="rating" value="3" required>
+                            <label for="rating3">&#9734;&#9734;&#9734;</label>
+                        </div>
+                        <div class="star-item">
+                            <input type="radio" id="rating4" name="rating" value="4" required>
+                            <label for="rating4">&#9734;&#9734;&#9734;&#9734;</label>
+                        </div>
+                        <div class="star-item">
+                            <input type="radio" id="rating5" name="rating" value="5" required>
+                            <label for="rating5">&#9734;&#9734;&#9734;&#9734;&#9734;</label>
+                        </div>
                     </div>
                 </fieldset>
             </div>
@@ -68,22 +68,22 @@
             <div class="field-group">
                 <fieldset class="check-fieldset">
                     <legend>Which features did you find useful in the product?<br><em>(Check all that apply)</em></legend>
-                    <label class="check-label">
+                    <div class="check-item">
                         <input type="checkbox" id="feature-durability" name="features" value="durability">
-                        Durability
-                    </label>
-                    <label class="check-label">
+                        <label for="feature-durability">Durability</label>
+                    </div>
+                    <div class="check-item">
                         <input type="checkbox" id="feature-ease" name="features" value="ease-of-use">
-                        Ease of Use
-                    </label>
-                    <label class="check-label">
+                        <label for="feature-ease">Ease of Use</label>
+                    </div>
+                    <div class="check-item">
                         <input type="checkbox" id="feature-performance" name="features" value="performance">
-                        Performance
-                    </label>
-                    <label class="check-label">
+                        <label for="feature-performance">Performance</label>
+                    </div>
+                    <div class="check-item">
                         <input type="checkbox" id="feature-design" name="features" value="design">
-                        Design
-                    </label>
+                        <label for="feature-design">Design</label>
+                    </div>
                 </fieldset>
             </div>
 
