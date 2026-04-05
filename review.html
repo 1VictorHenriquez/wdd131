@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Review Confirmation — WDD131">
+    <meta name="author" content="Victor Henriquez">
+    <title>Review Submitted</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/form.css">
+    <script src="scripts/review.js" defer></script>
+</head>
+<body>
+
+    <header>
+        <h1>Product Review</h1>
+    </header>
+
+    <main>
+        <div class="confirmation-card">
+            <div class="check-icon">&#10003;</div>
+            <h2>Thank you for your review!</h2>
+            <p class="confirm-msg">Your feedback has been submitted successfully.</p>
+
+            <div class="review-count-box">
+                <span class="count-label">Total reviews submitted</span>
+                <span class="count-number" id="review-count">0</span>
+            </div>
+
+            <a href="form.html" class="back-link">Submit another review</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>© <span id="currentyear"></span> Victor Henriquez | Mérida, Venezuela</p>
+        <p id="lastModified"></p>
+    </footer>
+
+</body>
+</html>
