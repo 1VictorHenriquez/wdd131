@@ -1,3 +1,20 @@
+/* ── Font Metrics (prevent CLS) ─────────────────────────────── */
+@font-face {
+    font-family: 'Space Mono-fallback';
+    src: local('Arial');
+    size-adjust: 107%;
+    ascent-override: 100%;
+    descent-override: 25%;
+}
+
+@font-face {
+    font-family: 'DM Sans-fallback';
+    src: local('Arial');
+    size-adjust: 113%;
+    ascent-override: 90%;
+    descent-override: 25%;
+}
+
 /* ── Variables ─────────────────────────────────────────────── */
 :root {
     --color-bg: #0d0d0d;
@@ -15,12 +32,13 @@
     --color-white: #ffffff;
     --color-danger: #ff4747;
     --color-danger-dim: #ff47471a;
-    --font-heading: 'Space Mono', monospace;
-    --font-body: 'DM Sans', sans-serif;
+    --font-heading: 'Space Mono', 'Space Mono-fallback', monospace;
+    --font-body: 'DM Sans', 'DM Sans-fallback', sans-serif;
     --radius-sm: 6px;
     --radius-md: 10px;
     --radius-lg: 16px;
     --shadow: #00000040;
+    font-display: swap;
 }
 
 /* ── Reset ─────────────────────────────────────────────────── */
@@ -49,6 +67,7 @@ img { display: block; max-width: 100%; }
     position: sticky;
     top: 0;
     z-index: 100;
+    contain: layout style;
 }
 
 .header-inner {
@@ -132,6 +151,8 @@ img { display: block; max-width: 100%; }
 .hero {
     border-bottom: 1px solid var(--color-border);
     background: var(--color-surface);
+    min-height: 160px;
+    contain: layout style;
 }
 
 .hero-inner {
@@ -225,12 +246,16 @@ img { display: block; max-width: 100%; }
     width: 100%;
     margin: 0 auto;
     padding: 1.5rem 1.25rem 3rem;
+    contain: layout style;
 }
 
 .tools-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: 1rem;
+    min-height: 400px;
+    content-visibility: auto;
+    contain-intrinsic-size: 0 400px;
 }
 
 .empty-msg {

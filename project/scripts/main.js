@@ -149,6 +149,11 @@ const filterRow = document.querySelector("#filter-row");
 const navToggle = document.querySelector("#nav-toggle");
 const mainNav = document.querySelector("#main-nav");
 
+// Mobile-specific optimizations
+if ('ontouchstart' in window) {
+    document.body.classList.add('touch-device');
+}
+
 // ── Nav Toggle ───────────────────────────────────────────────
 navToggle.addEventListener("click", () => {
     const isOpen = mainNav.classList.toggle("open");
@@ -157,57 +162,77 @@ navToggle.addEventListener("click", () => {
 
 // ── Filter Logic ─────────────────────────────────────────────
 function getFilteredTools(filter) {
+    let filtered;
     if (filter === "all") {
-        return tools;
+        filtered = tools;
     } else if (filter === "favorites") {
-        return tools.filter(tool => favorites.includes(tool.id));
+        filtered = tools.filter(tool => favorites.includes(tool.id));
     } else {
-        return tools.filter(tool => tool.category === filter);
+        filtered = tools.filter(tool => tool.category === filter);
     }
+    // Sort by id for consistent rendering order
+    return filtered.sort((a, b) => a.id.localeCompare(b.id));
+}
+
+// Mobile performance: debounce filter clicks
+let filterTimeout;
+function debounceFilter(filter, delay = 100) {
+    clearTimeout(filterTimeout);
+    filterTimeout = setTimeout(() => {
+        renderCards(filter);
+    }, delay);
 }
 
 // ── Render Cards ─────────────────────────────────────────────
 function renderCards(filter) {
     const filtered = getFilteredTools(filter);
-    grid.innerHTML = "";
 
     if (filtered.length === 0) {
         emptyMsg.hidden = false;
         resultsCount.textContent = "";
+        grid.innerHTML = "";
         return;
     }
 
     emptyMsg.hidden = true;
     resultsCount.textContent = `${filtered.length} tool${filtered.length !== 1 ? "s" : ""} found`;
 
-    filtered.forEach(tool => {
-        const isSaved = favorites.includes(tool.id);
-        const card = document.createElement("article");
-        card.className = "tool-card";
-        card.setAttribute("data-id", tool.id);
+    // Use requestAnimationFrame to prevent layout thrashing
+    requestAnimationFrame(() => {
+        // Clear existing cards efficiently
+        while (grid.firstChild) {
+            grid.removeChild(grid.firstChild);
+        }
 
-        card.innerHTML = `
-            <div class="card-top">
-                <div class="card-icon ${tool.category}">${tool.icon}</div>
-                <button class="fav-btn ${isSaved ? "saved" : ""}" data-id="${tool.id}" aria-label="${isSaved ? "Remove from favorites" : "Save to favorites"}">
-                    ${isSaved ? "★" : "☆"}
-                </button>
-            </div>
-            <div>
-                <h2 class="card-name">${tool.name}</h2>
-                <span class="card-category ${tool.category}">${tool.category}</span>
-            </div>
-            <p class="card-desc">${tool.description}</p>
-            <div class="card-footer">
-                <a href="${tool.url}" class="card-link" target="_blank" rel="noopener">Visit site →</a>
-                <span class="card-free ${tool.free ? "yes" : ""}">${tool.free ? "Free tier" : "Paid"}</span>
-            </div>
-        `;
+        filtered.forEach(tool => {
+            const isSaved = favorites.includes(tool.id);
+            const card = document.createElement("article");
+            card.className = "tool-card";
+            card.setAttribute("data-id", tool.id);
 
-        grid.appendChild(card);
+            card.innerHTML = `
+                <div class="card-top">
+                    <div class="card-icon ${tool.category}">${tool.icon}</div>
+                    <button class="fav-btn ${isSaved ? "saved" : ""}" data-id="${tool.id}" aria-label="${isSaved ? "Remove from favorites" : "Save to favorites"}">
+                        ${isSaved ? "★" : "☆"}
+                    </button>
+                </div>
+                <div>
+                    <h2 class="card-name">${tool.name}</h2>
+                    <span class="card-category ${tool.category}">${tool.category}</span>
+                </div>
+                <p class="card-desc">${tool.description}</p>
+                <div class="card-footer">
+                    <a href="${tool.url}" class="card-link" target="_blank" rel="noopener">Visit site →</a>
+                    <span class="card-free ${tool.free ? "yes" : ""}">${tool.free ? "Free tier" : "Paid"}</span>
+                </div>
+            `;
+
+            grid.appendChild(card);
+        });
+
+        attachFavListeners();
     });
-
-    attachFavListeners();
 }
 
 // ── Favorites ─────────────────────────────────────────────────
@@ -247,7 +272,13 @@ filterRow.addEventListener("click", e => {
     btn.classList.add("active");
 
     currentFilter = btn.dataset.filter;
-    renderCards(currentFilter);
+
+    // Use debounce on mobile for better performance
+    if ('ontouchstart' in window) {
+        debounceFilter(currentFilter);
+    } else {
+        renderCards(currentFilter);
+    }
 });
 
 // ── Footer ────────────────────────────────────────────────────
@@ -255,4 +286,6 @@ document.querySelector("#currentyear").textContent = new Date().getFullYear();
 document.querySelector("#lastModified").textContent = `Last Modified: ${document.lastModified}`;
 
 // ── Init ──────────────────────────────────────────────────────
-renderCards("all");
+document.addEventListener("DOMContentLoaded", () => {
+    renderCards("all");
+});
