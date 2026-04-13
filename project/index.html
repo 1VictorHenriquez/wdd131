@@ -7,23 +7,20 @@
     <meta name="author" content="Victor Henriquez">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#a3ff47">
-    <meta http-equiv="Cache-Control" content="public, max-age=31536000">
+    <meta http-equiv="Cache-Control" content="public, max-age=31536000, immutable">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <meta name="format-detection" content="telephone=no">
     <title>AI Tools Directory for Web Creators</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap"></noscript>
-    <link rel="preload" href="styles/main.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="styles/main.css"></noscript>
-    <link rel="preload" href="scripts/main.js" as="script">
-    <link rel="preload" href="images/logo.avif" as="image" type="image/avif">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap">
+    <link rel="stylesheet" href="styles/main.css">
     <style>
-    /* Critical performance CSS */
-    .tools-grid { min-height: 600px; }
+    /* Critical layout CSS to prevent shifts */
+    .tools-grid { min-height: 600px; display: grid; grid-template-columns: 1fr; gap: 1rem; opacity: 0; transition: opacity 0.2s; }
+    .tools-grid.loaded { opacity: 1; }
     .hero { min-height: 180px; }
-    body { font-family: 'DM Sans', sans-serif; }
-    .site-header { padding: 1rem 0; }
-    .logo-img { width: 36px; height: 36px; }
+    body { margin: 0; font-family: 'DM Sans', sans-serif; background: #0d0d0d; color: #e8e8e8; }
     </style>
     <script src="scripts/main.js" defer></script>
 </head>

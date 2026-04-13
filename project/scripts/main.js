@@ -176,7 +176,7 @@ function getFilteredTools(filter) {
 
 // Mobile performance: debounce filter clicks
 let filterTimeout;
-function debounceFilter(filter, delay = 100) {
+function debounceFilter(filter, delay = 50) {
     clearTimeout(filterTimeout);
     filterTimeout = setTimeout(() => {
         renderCards(filter);
@@ -267,6 +267,9 @@ function renderCards(filter) {
     // Single DOM operation
     grid.textContent = "";
     grid.appendChild(fragment);
+
+    // Add loaded class for smooth transition
+    setTimeout(() => grid.classList.add('loaded'), 50);
 }
 
 // ── Favorites ─────────────────────────────────────────────────
@@ -323,11 +326,6 @@ document.querySelector("#lastModified").textContent = `Last Modified: ${document
 
 // ── Init ──────────────────────────────────────────────────────
 document.addEventListener("DOMContentLoaded", () => {
-    // Use requestIdleCallback for non-critical initialization
-    if ('requestIdleCallback' in window) {
-        requestIdleCallback(() => renderCards("all"));
-    } else {
-        // Fallback for browsers without requestIdleCallback
-        setTimeout(() => renderCards("all"), 1);
-    }
+    // Direct render for better performance - defer non-critical work
+    renderCards("all");
 });
