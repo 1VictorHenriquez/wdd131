@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Suggest a new AI tool to be added to the AI Tools Directory for Web Creators. Share tools that help designers and developers work smarter.">
+    <meta name="author" content="Victor Henriquez">
+    <title>Suggest a Tool — AI Tools Directory</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <script src="scripts/suggest.js" defer></script>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="index.html" class="logo">
+                <img src="images/logo.avif" alt="AI Tools Directory Logo" class="logo-img" width="36" height="36" loading="lazy">
+                <span class="logo-text">Tools Directory</span>
+            </a>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+            <nav class="main-nav" id="main-nav">
+                <a href="index.html" class="nav-link">Directory</a>
+                <a href="suggest.html" class="nav-link active">Suggest a Tool</a>
+                <a href="references.html" class="nav-link">References</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="page-inner">
+
+            <h1 class="page-title">Suggest a Tool</h1>
+            <p class="page-subtitle">Know an AI tool that web creators should know about? Share it here and we'll review it for inclusion in the directory.</p>
+
+            <!-- Submission counter -->
+            <div class="suggest-stats">
+                <span class="stat-label">Community suggestions submitted</span>
+                <span class="stat-number" id="suggestion-count">0</span>
+            </div>
+
+            <!-- Form -->
+            <form class="suggest-form" id="suggest-form" method="get" action="#" novalidate>
+
+                <div class="form-group">
+                    <label for="tool-name">Tool Name <span class="required-mark">*</span></label>
+                    <input type="text" id="tool-name" name="toolName" placeholder="e.g. Midjourney" required>
+                    <span class="field-error" id="error-tool-name" hidden>Please enter the tool name.</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="tool-url">Website URL <span class="required-mark">*</span></label>
+                    <input type="url" id="tool-url" name="toolUrl" placeholder="https://example.com" required>
+                    <span class="field-error" id="error-tool-url" hidden>Please enter a valid URL (include https://).</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="tool-category">Category <span class="required-mark">*</span></label>
+                    <select id="tool-category" name="toolCategory" required>
+                        <option value="" disabled selected>Select a category...</option>
+                        <option value="design">Design</option>
+                        <option value="coding">Coding</option>
+                        <option value="copywriting">Copywriting</option>
+                        <option value="seo">SEO</option>
+                        <option value="image">Image Generation</option>
+                    </select>
+                    <span class="field-error" id="error-tool-category" hidden>Please select a category.</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="tool-free">Pricing Model <span class="required-mark">*</span></label>
+                    <select id="tool-free" name="toolFree" required>
+                        <option value="" disabled selected>Select pricing...</option>
+                        <option value="true">Free / Free tier available</option>
+                        <option value="false">Paid only</option>
+                    </select>
+                    <span class="field-error" id="error-tool-free" hidden>Please select a pricing model.</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="tool-desc">Description <span class="required-mark">*</span></label>
+                    <textarea id="tool-desc" name="toolDesc" placeholder="Briefly describe what this tool does and why web creators should use it..." required></textarea>
+                    <span class="field-hint" id="char-count">0 / 300 characters</span>
+                    <span class="field-error" id="error-tool-desc" hidden>Please write a description (at least 20 characters).</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="submitter-name">Your Name <span class="optional">(Optional)</span></label>
+                    <input type="text" id="submitter-name" name="submitterName" placeholder="Your name">
+                </div>
+
+                <div class="form-row">
+                    <button type="submit" class="submit-btn">Submit Suggestion →</button>
+                    <button type="button" class="reset-btn" id="reset-btn">Clear form</button>
+                </div>
+
+            </form>
+
+            <!-- Success message -->
+            <div class="success-msg" id="success-msg" hidden>
+                <span class="success-icon">✓</span>
+                <div>
+                    <p class="success-title">Suggestion submitted!</p>
+                    <p class="success-body" id="success-body"></p>
+                </div>
+            </div>
+
+            <!-- Recent suggestions -->
+            <div class="recent-section" id="recent-section" hidden>
+                <h2 class="recent-title">Your recent suggestions</h2>
+                <ul class="recent-list" id="recent-list"></ul>
+                <button class="clear-btn" id="clear-btn">Clear history</button>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <p>&#169; <span id="currentyear"></span> Victor Henriquez &mdash; Mérida, Venezuela</p>
+            <p id="lastModified"></p>
+            <p><a href="references.html" class="footer-link">References &amp; Sources</a></p>
+        </div>
+    </footer>
+
+</body>
+</html>
