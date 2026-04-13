@@ -158,7 +158,7 @@ if ('ontouchstart' in window) {
 navToggle.addEventListener("click", () => {
     const isOpen = mainNav.classList.toggle("open");
     navToggle.textContent = isOpen ? "✕" : "☰";
-});
+}, { passive: true });
 
 // ── Filter Logic ─────────────────────────────────────────────
 function getFilteredTools(filter) {
@@ -190,49 +190,83 @@ function renderCards(filter) {
     if (filtered.length === 0) {
         emptyMsg.hidden = false;
         resultsCount.textContent = "";
-        grid.innerHTML = "";
+        grid.textContent = ""; // More efficient than innerHTML
         return;
     }
 
     emptyMsg.hidden = true;
     resultsCount.textContent = `${filtered.length} tool${filtered.length !== 1 ? "s" : ""} found`;
 
-    // Use requestAnimationFrame to prevent layout thrashing
-    requestAnimationFrame(() => {
-        // Clear existing cards efficiently
-        while (grid.firstChild) {
-            grid.removeChild(grid.firstChild);
-        }
+    // Batch DOM operations for better performance
+    const fragment = document.createDocumentFragment();
 
-        filtered.forEach(tool => {
-            const isSaved = favorites.includes(tool.id);
-            const card = document.createElement("article");
-            card.className = "tool-card";
-            card.setAttribute("data-id", tool.id);
+    filtered.forEach(tool => {
+        const isSaved = favorites.includes(tool.id);
+        const card = document.createElement("article");
+        card.className = "tool-card";
+        card.setAttribute("data-id", tool.id);
 
-            card.innerHTML = `
-                <div class="card-top">
-                    <div class="card-icon ${tool.category}">${tool.icon}</div>
-                    <button class="fav-btn ${isSaved ? "saved" : ""}" data-id="${tool.id}" aria-label="${isSaved ? "Remove from favorites" : "Save to favorites"}">
-                        ${isSaved ? "★" : "☆"}
-                    </button>
-                </div>
-                <div>
-                    <h2 class="card-name">${tool.name}</h2>
-                    <span class="card-category ${tool.category}">${tool.category}</span>
-                </div>
-                <p class="card-desc">${tool.description}</p>
-                <div class="card-footer">
-                    <a href="${tool.url}" class="card-link" target="_blank" rel="noopener">Visit site →</a>
-                    <span class="card-free ${tool.free ? "yes" : ""}">${tool.free ? "Free tier" : "Paid"}</span>
-                </div>
-            `;
+        // Create elements directly instead of using innerHTML for better performance
+        const cardTop = document.createElement("div");
+        cardTop.className = "card-top";
 
-            grid.appendChild(card);
-        });
+        const cardIcon = document.createElement("div");
+        cardIcon.className = `card-icon ${tool.category}`;
+        cardIcon.textContent = tool.icon;
+        cardTop.appendChild(cardIcon);
 
-        attachFavListeners();
+        const favBtn = document.createElement("button");
+        favBtn.className = `fav-btn ${isSaved ? "saved" : ""}`;
+        favBtn.setAttribute("data-id", tool.id);
+        favBtn.setAttribute("aria-label", isSaved ? "Remove from favorites" : "Save to favorites");
+        favBtn.textContent = isSaved ? "★" : "☆";
+        cardTop.appendChild(favBtn);
+
+        card.appendChild(cardTop);
+
+        const cardContent = document.createElement("div");
+
+        const cardName = document.createElement("h2");
+        cardName.className = "card-name";
+        cardName.textContent = tool.name;
+        cardContent.appendChild(cardName);
+
+        const cardCategory = document.createElement("span");
+        cardCategory.className = `card-category ${tool.category}`;
+        cardCategory.textContent = tool.category;
+        cardContent.appendChild(cardCategory);
+
+        card.appendChild(cardContent);
+
+        const cardDesc = document.createElement("p");
+        cardDesc.className = "card-desc";
+        cardDesc.textContent = tool.description;
+        card.appendChild(cardDesc);
+
+        const cardFooter = document.createElement("div");
+        cardFooter.className = "card-footer";
+
+        const cardLink = document.createElement("a");
+        cardLink.className = "card-link";
+        cardLink.href = tool.url;
+        cardLink.target = "_blank";
+        cardLink.rel = "noopener";
+        cardLink.textContent = "Visit site →";
+        cardFooter.appendChild(cardLink);
+
+        const cardFree = document.createElement("span");
+        cardFree.className = `card-free ${tool.free ? "yes" : ""}`;
+        cardFree.textContent = tool.free ? "Free tier" : "Paid";
+        cardFooter.appendChild(cardFree);
+
+        card.appendChild(cardFooter);
+
+        fragment.appendChild(card);
     });
+
+    // Single DOM operation
+    grid.textContent = "";
+    grid.appendChild(fragment);
 }
 
 // ── Favorites ─────────────────────────────────────────────────
@@ -255,13 +289,15 @@ function toggleFavorite(id) {
     renderCards(currentFilter);
 }
 
-function attachFavListeners() {
-    document.querySelectorAll(".fav-btn").forEach(btn => {
-        btn.addEventListener("click", () => {
-            toggleFavorite(btn.dataset.id);
-        });
-    });
-}
+// Use event delegation for better performance
+grid.addEventListener("click", (e) => {
+    if (e.target.classList.contains("fav-btn")) {
+        e.preventDefault();
+        toggleFavorite(e.target.dataset.id);
+    }
+});
+
+// No need for attachFavListeners anymore since we use event delegation
 
 // ── Filter Buttons ────────────────────────────────────────────
 filterRow.addEventListener("click", e => {
@@ -279,7 +315,7 @@ filterRow.addEventListener("click", e => {
     } else {
         renderCards(currentFilter);
     }
-});
+}, { passive: true });
 
 // ── Footer ────────────────────────────────────────────────────
 document.querySelector("#currentyear").textContent = new Date().getFullYear();
@@ -287,5 +323,11 @@ document.querySelector("#lastModified").textContent = `Last Modified: ${document
 
 // ── Init ──────────────────────────────────────────────────────
 document.addEventListener("DOMContentLoaded", () => {
-    renderCards("all");
+    // Use requestIdleCallback for non-critical initialization
+    if ('requestIdleCallback' in window) {
+        requestIdleCallback(() => renderCards("all"));
+    } else {
+        // Fallback for browsers without requestIdleCallback
+        setTimeout(() => renderCards("all"), 1);
+    }
 });
